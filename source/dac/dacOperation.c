@@ -10,6 +10,10 @@
 #include "board.h"
 #include "fsl_dac.h"
 
+#include "SEGGER_RTT.h"
+#include "SEGGER_SYSVIEW.h"
+#include "SEGGER_SYSVIEW_Config.h"
+
 #include "clock_config.h"
 #include "pin_mux.h"
 /* FreeRTOS kernel includes. */
@@ -66,6 +70,7 @@ void dactask(void *pvParameters)
 		queueStatus = xQueueReceive(xDacQueue,&dacLevel,(TickType_t)portMAX_DELAY);
 		if(queueStatus == pdTRUE)
 		{
+			SEGGER_RTT_WriteString(0, "Hello World from SEGGER RTT!\r\n");
 			DbgConsole_Printf("dactask %x\r\n",dacLevel);
 		}
 //		vTaskDelay( (TickType_t)(500 / portTICK_PERIOD_MS) );

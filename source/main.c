@@ -39,6 +39,11 @@
 #include "clock_config.h"
 #include "fsl_debug_console.h"
 
+#include "SEGGER_RTT.h"
+#include "SEGGER_SYSVIEW.h"
+#include "SEGGER_SYSVIEW_Config.h"
+
+
 /* FreeRTOS kernel includes. */
 #include "FreeRTOS.h"
 #include "task.h"
@@ -70,6 +75,7 @@ int main(void) {
   BOARD_InitPins();
   BOARD_BootClockRUN();
   BOARD_InitDebugConsole();
+  SEGGER_SYSVIEW_Conf();
 
   /* Add your code here */
 
