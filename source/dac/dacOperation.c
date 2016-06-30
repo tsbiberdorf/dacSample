@@ -70,8 +70,10 @@ void dactask(void *pvParameters)
 		queueStatus = xQueueReceive(xDacQueue,&dacLevel,(TickType_t)portMAX_DELAY);
 		if(queueStatus == pdTRUE)
 		{
-			SEGGER_RTT_WriteString(0, "Hello World from SEGGER RTT!\r\n");
-			DbgConsole_Printf("dactask %x\r\n",dacLevel);
+//			SEGGER_RTT_WriteString(0, "Hello World from SEGGER RTT!\r\n");
+
+			SEGGER_RTT_printf(0,"dactask %x\r\n",dacLevel);
+//			DbgConsole_Printf("dactask %x\r\n",dacLevel);
 		}
 //		vTaskDelay( (TickType_t)(500 / portTICK_PERIOD_MS) );
 	}

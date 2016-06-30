@@ -75,9 +75,9 @@ int main(void) {
   BOARD_InitPins();
   BOARD_BootClockRUN();
   BOARD_InitDebugConsole();
-  SEGGER_SYSVIEW_Conf();
 
   /* Add your code here */
+  SEGGER_RTT_Init();
 
   /* Create RTOS task */
 //  xTaskCreate(hello_task, "Hello_task", configMINIMAL_STACK_SIZE, NULL, hello_task_PRIORITY, NULL);
